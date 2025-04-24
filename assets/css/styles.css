@@ -147,6 +147,17 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.about-grid .card p {
+    text-align: justify;
+}
+.about-grid .card p {
+    text-align: left; 
+    font-size: 0.95rem;
+    font-weight: 400; 
+    line-height: 1.6; 
+}
+
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 247, 255, 0.1);
@@ -248,4 +259,11 @@ a {
 
 a:hover {
     color: var(--primary); /* Coloca a cor que você preferir no hover */
+}
+/* Estilo compartilhado entre tagline e os cards */
+.soft-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: justify;
 }
