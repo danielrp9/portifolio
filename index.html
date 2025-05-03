@@ -10,35 +10,46 @@
 </head>
 <body>
     <div class="container">
+        
         <header>
             <div class="profile-header">
                 <img src="assets/img/perfil.png" alt="Foto de Daniel Rodrigues Pereira" class="profile-pic">
                 <div>
                     <h1><strong>Daniel Rodrigues Pereira</strong></h1>
                     <h2>Desenvolvedor Fullstack | Discente de Sistemas de Informação - UFVJM</h2>
-                    <p class="tagline soft-text"">Sou um desenvolvedor Fullstack com forte atuação em projetos acadêmicos e comunitários, com experiência prática com Python, Django, HTML, CSS, JavaScript, React Native, Java e SQL, utilizando essas tecnologias para construir soluções robustas, funcionais e alinhadas às necessidades do usuário.</p>
+                    <p class="tagline soft-text">Sou um desenvolvedor Fullstack com forte atuação em projetos acadêmicos e comunitários, com experiência prática com Python, Django, HTML, CSS, JavaScript, React Native, Java e SQL, utilizando essas tecnologias para construir soluções robustas, funcionais e alinhadas às necessidades do usuário.</p>
                     
-                    <div class="contact-icons">
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/5538997414215" class="icon-container" target="_blank" title="WhatsApp">
-                            <img src="assets/img/whatsapp.png" alt="WhatsApp" class="custom-icon">
-                        </a>
-                        
-                        <!-- GitHub -->
-                        <a href="https://github.com/danielrp9" class="icon-container" target="_blank" title="GitHub">
-                            <img src="assets/img/github.png" alt="GitHub" class="custom-icon">
-                        </a>
-                        
-                        <!-- E-mail -->
-                        <a href="mailto:danielrodrigues878@hotmail.com" class="icon-container" title="E-mail">
-                            <img src="assets/img/e-mail.png" alt="E-mail" class="custom-icon">
-                        </a>
-
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" class="icon-container" target="_blank" title="LinkedIn">
-                            <img src="assets/img/linkedin.png" alt="LinkedIn" class="custom-icon">
-                        </a>
-
+                    <div class="header-controls">
+                        <div class="contact-icons">
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/5538997414215" class="icon-container" target="_blank" title="WhatsApp">
+                                <img src="assets/img/whatsapp.png" alt="WhatsApp" class="custom-icon">
+                            </a>
+                            
+                            <!-- GitHub -->
+                            <a href="https://github.com/danielrp9" class="icon-container" target="_blank" title="GitHub">
+                                <img src="assets/img/github.png" alt="GitHub" class="custom-icon">
+                            </a>
+                            
+                            <!-- E-mail -->
+                            <a href="mailto:danielrodrigues878@hotmail.com" class="icon-container" title="E-mail">
+                                <img src="assets/img/e-mail.png" alt="E-mail" class="custom-icon">
+                            </a>
+        
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" class="icon-container" target="_blank" title="LinkedIn">
+                                <img src="assets/img/linkedin.png" alt="LinkedIn" class="custom-icon">
+                            </a>
+                        </div>
+        
+                        <div class="theme-toggle-container" title="Alternar tema claro/escuro">
+                            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                            <label for="theme-toggle" class="theme-toggle-label">
+                                <span class="sun-icon"><i class="fas fa-sun"></i></span>
+                                <span class="moon-icon"><i class="fas fa-moon"></i></span>
+                                <span class="toggle-ball"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,19 +165,135 @@
             </section>
             
         </main>
+
+        <section class="skills-section">
+            <h2 class="section-title">Ferramentas e Tecnologias</h2>
+            <div class="skills-grid">
+                <!-- HTML -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/html.png" alt="HTML5" class="skill-icon">
+                    <h3>HTML5</h3>
+                    <p>Estruturação semântica de páginas web, formulários, acessibilidade e integração com outras tecnologias.</p>
+                </div>
+                
+                <!-- CSS -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/css.png" alt="CSS3" class="skill-icon">
+                    <h3>CSS3</h3>
+                    <p>Estilização avançada, Flexbox, Grid Layout, animações, responsividade e design moderno.</p>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/js.png" alt="JavaScript" class="skill-icon">
+                    <h3>JavaScript</h3>
+                    <p>Manipulação do DOM, ES6+, AJAX, Fetch API, programação assíncrona e funcional.</p>
+                </div>
+                
+                <!-- Bootstrap -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/bootstrap.png" alt="Bootstrap" class="skill-icon">
+                    <h3>Bootstrap</h3>
+                    <p>Desenvolvimento rápido de interfaces responsivas utilizando o framework mais popular.</p>
+                </div>
+                
+                <!-- React -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/react2.png" alt="React JS" class="skill-icon">
+                    <h3>React JS</h3>
+                    <p>Desenvolvimento de interfaces modernas com componentes reutilizáveis, Hooks e React Router.</p>
+                </div>
+                
+                <!-- Python -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
+                    <h3>Python</h3>
+                    <p>Desenvolvimento back-end, scripts, automação, análise de dados e estruturação de algoritmos.</p>
+                </div>
+                
+                <!-- Django -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/dj.png" alt="Django" class="skill-icon">
+                    <h3>Django</h3>
+                    <p>Framework web full-stack com ORM, autenticação, templates e arquitetura MVT.</p>
+                </div>
+                
+                <!-- SQL -->
+                <div class="skill-card">
+                    <img src="assets/img/icones/sql.png" alt="SQL" class="skill-icon">
+                    <h3>SQL</h3>
+                    <p>Modelagem de bancos de dados, queries complexas, otimização e administração.</p>
+                </div>
+            </div>
+        </section>
         
         <footer>
             <p>Vamos construir algo incrível juntos</p>
-            <div class="social-links">
-                <a href="https://github.com/SEUUSERGITHUB" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/SEUPERFIL" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:danielrodrigues878@hotmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
-            </div>
             <p style="margin-top: 2rem; opacity: 0.6;">© 2023 Daniel Rodrigues Pereira. Todos os direitos reservados.</p>
         </footer>
     </div>
-    
+
+  
+
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
     <!-- Font Awesome para ícones -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+
+const themeToggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
+
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        // Modo claro
+        root.style.setProperty('--dark', '#f8fafc');
+        root.style.setProperty('--light', '#0f172a');
+        root.style.setProperty('--card-bg', 'rgba(226, 232, 240, 0.7)');
+    } else {
+        // Modo escuro (padrão)
+        root.style.setProperty('--dark', '#0f172a');
+        root.style.setProperty('--light', '#f8fafc');
+        root.style.setProperty('--card-bg', 'rgba(30, 41, 59, 0.7)');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+
 </body>
 </html>
