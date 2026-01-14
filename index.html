@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/icons8-editor-50.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Daniel Rodrigues Pereira | Desenvolvedor Fullstack</title>
+    <style>
+        /* Estilos para Harmonização e Novos Projetos */
+        .project-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .carousel-slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .carousel-btn:hover { background: #2563eb; border-color: #2563eb; }
+        .btn-prev { left: 10px; }
+        .btn-next { right: 10px; }
+
+        .project-details h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .project-details p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .project-stacks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .stack-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-project {
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-online {
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-online:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-github {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 992px) {
+            .project-container { grid-template-columns: 1fr; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <div class="profile-header">
+                <img src="assets/img/perfil.png" alt="Foto de Daniel Rodrigues Pereira" class="profile-pic">
+                <div>
+                    <h1><strong>Daniel Rodrigues Pereira</strong></h1>
+                    <h2>Desenvolvedor Fullstack | Discente de Sistemas de Informação - UFVJM</h2>
+                    <p class="tagline soft-text">Sou um desenvolvedor Fullstack com forte atuação em projetos acadêmicos e comunitários, com experiência prática com Python, Django, HTML, CSS, JavaScript, React Native, Java e SQL, utilizando essas tecnologias para construir soluções robustas, funcionais e alinhadas às necessidades do usuário.</p>
+                    
+                    <div class="header-controls">
+                        <div class="contact-icons">
+                            <a href="https://wa.me/5538997414215" class="icon-container" target="_blank" title="WhatsApp"><img src="assets/img/whatsapp.png" alt="WhatsApp" class="custom-icon"></a>
+                            <a href="https://github.com/danielrp9" class="icon-container" target="_blank" title="GitHub"><img src="assets/img/github.png" alt="GitHub" class="custom-icon"></a>
+                            <a href="mailto:danielrodrigues878@hotmail.com" class="icon-container" title="E-mail"><img src="assets/img/e-mail.png" alt="E-mail" class="custom-icon"></a>
+                            <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" class="icon-container" target="_blank" title="LinkedIn"><img src="assets/img/linkedin.png" alt="LinkedIn" class="custom-icon"></a>
+                        </div>
+        
+                        <div class="theme-toggle-container" title="Alternar tema claro/escuro">
+                            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                            <label for="theme-toggle" class="theme-toggle-label">
+                                <span class="sun-icon"><i class="fas fa-sun"></i></span>
+                                <span class="moon-icon"><i class="fas fa-moon"></i></span>
+                                <span class="toggle-ball"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section class="about-section">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-grid">
+                    <div class="card">
+                        <h3>Sobre Mim</h3>
+                        <p>Sou um desenvolvedor Fullstack com atuação na área acadêmica e estudantil. Tenho experiência prática com tecnologias como <strong>Python, Django, HTML, CSS, JavaScript, Java e SQL</strong>, que utilizo para desenvolver soluções reais e funcionais. Tenho paixão por tecnologia, liderança e por criar impacto positivo tanto em projetos quanto na comunidade universitária.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Experiência Profissional</h3>
+                        <p>Atuei por 1 ano como desenvolvedor Fullstack na Empresa Júnior Next Step, onde participei de projetos com clientes reais, aplicando tecnologias como <strong>Python, Django, JavaScript, React Native, HTML, CSS</strong> e banco de dados com <strong>SQL</strong>, sempre focando em entregar soluções completas e eficientes.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Projetos Acadêmicos</h3>
+                        <p>Presidente da Liga Acadêmica ByteBuilders: lidero atividades práticas, oficinas e projetos colaborativos voltados ao desenvolvimento de software e à capacitação técnica dos membros.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Representação Estudantil</h3>
+                        <p>Atualmente sou presidente do Diretório Central dos Estudantes (DCE) da UFVJM, representando os estudantes e liderando ações em defesa dos direitos estudantis e por melhorias acadêmicas em toda a universidade.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="projects-section">
+                <h2 class="section-title">Meus Projetos</h2>
+
+                <div class="project-container">
+                    <div class="project-carousel" id="p1">
+                        <div class="carousel-slides">
+                            <img src="assets/img/arq-luc2.png" alt="Studio Lucas Ribeiro">
+                            <img src="assets/img/lucasarqc.png" alt="Studio Lucas Ribeiro">
+                            <img src="assets/img/luc-rib3.png" alt="Studio Lucas Ribeiro">
+                        </div>
+                        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p1')"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p1')"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-details">
+                        <h3>Landing Page - Arquitetura</h3>
+                        <p>Landing Page profissional desenvolvida para um Studio de Arquitetura. Focada em design minimalista e alta performance.</p>
+                        <div class="project-stacks">
+                            <span class="stack-tag">HTML5</span>
+                            <span class="stack-tag">CSS3</span>
+                            <span class="stack-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://danielrp9.github.io/studio-lucas-ribeiro/" target="_blank" class="btn-project btn-online">
+                                <i class="fas fa-external-link-alt"></i> Acessar Online
+                            </a>
+                            <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-container">
+                    <div class="project-carousel" id="p2">
+                        <div class="carousel-slides">
+                            <img src="assets/img/protifolio-gab1.png" alt="Portfolio Gabriel">
+                            <img src="assets/img/portfolio-gab2.png" alt="Portfolio Gabriel">
+                        </div>
+                        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p2')"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p2')"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-details">
+                        <h3>Portfólio</h3>
+                        <p>Landing Page desenvolvida para apresentar habilidades e projetos pessoais de um Engenheiro de Minas</p>
+                        <div class="project-stacks">
+                            <span class="stack-tag">HTML5</span>
+                            <span class="stack-tag">CSS3</span>
+                            <span class="stack-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://danielrp9.github.io/portifolio-gabriel-dias/" target="_blank" class="btn-project btn-online">
+                                <i class="fas fa-external-link-alt"></i> Acessar Online
+                            </a>
+                            <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="project-container">
+    <div class="project-carousel" id="p4">
+        <div class="carousel-slides">
+            <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
+            <img src="assets/img/flanelinha-vei-estacio.png" alt="Sistema de Estacionamento">
+            <img src="assets/img/flanelinha-pag.png" alt="Sistema de Estacionamento">
+            <img src="assets/img/flanelinha-pagamento-tela.png" alt="Sistema de Estacionamento">
+            <img src="assets/img/flanelinha-historico de saida.png" alt="Sistema de Estacionamento">
+        </div>
+        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p4')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p4')">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <div class="project-details">
+        <h3>Sistema Web</h3>
+        <p>
+            Sistema Web de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais. O sistema permite o controle de vagas e o gerenciamento de veículos, além de integrar a API da Stripe para processamento seguro de pagamentos, proporcionando uma experiência prática e próxima de um cenário real de mercado.
+        </p>
+
+        <div class="project-stacks">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Django</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">HTML5</span>
+            <span class="stack-tag">CSS3</span>
+            <span class="stack-tag">Stripe API</span>
+            <span class="stack-tag">SQL</span>
+        </div>
+
+        <div class="project-links">
+            <!-- Se não tiver online, pode remover esse botão -->
+            <a href="#" class="btn-project btn-online">
+                <i class="fas fa-external-link-alt"></i> Acessar Online
+            </a>
+            <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+                <div class="project-container">
+                    <div class="project-carousel" id="p3">
+                        <div class="carousel-slides">
+                            <img src="assets/img/dce.png" alt="Portal DCE">
+                        </div>
+                        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p3')"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p3')"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-details">
+                        <h3>Portal DCE - UFVJM</h3>
+                        <p>Sistema web desenvolvido com o objetivo de centralizar e organizar informações institucionais do DCE, promovendo a transparência na gestão por meio da divulgação de dados financeiros, prestação de contas, controle de patrimônio e outras informações administrativas, facilitando o acesso da comunidade estudantil.</p>
+                        <div class="project-stacks">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">Django</span>
+                            <span class="stack-tag">JavaScript</span>
+                             <span class="stack-tag">CSS3</span>
+                              <span class="stack-tag">HTML5</span>
+                            <span class="stack-tag">SQL</span>
+                            <span class="stack-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://dce.pythonanywhere.com/" target="_blank" class="btn-project btn-online">
+                                <i class="fas fa-external-link-alt"></i> Acessar Online
+                            </a>
+                            <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills-section">
+                <h2 class="section-title">Ferramentas e Tecnologias</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <img src="assets/img/icones/html.png" alt="HTML5" class="skill-icon">
+                        <h3>HTML5</h3>
+                        <p>Estruturação semântica de páginas web, formulários e acessibilidade.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/css.png" alt="CSS3" class="skill-icon">
+                        <h3>CSS3</h3>
+                        <p>Estilização avançada, Flexbox, Grid e responsividade.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/js.png" alt="JavaScript" class="skill-icon">
+                        <h3>JavaScript</h3>
+                        <p>Manipulação do DOM, ES6+ e programação assíncrona.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
+                        <h3>Python</h3>
+                        <p>Desenvolvimento back-end, scripts e automação.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/dj.png" alt="Django" class="skill-icon">
+                        <h3>Django</h3>
+                        <p>Framework full-stack com ORM e arquitetura MVT.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/sql.png" alt="SQL" class="skill-icon">
+                        <h3>SQL</h3>
+                        <p>Modelagem de bancos de dados e queries complexas.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/react2.png" alt="React JS" class="skill-icon">
+                        <h3>React JS</h3>
+                        <p>Interfaces modernas com componentes reutilizáveis.</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="assets/img/icones/bootstrap.png" alt="Bootstrap" class="skill-icon">
+                        <h3>Bootstrap</h3>
+                        <p>Desenvolvimento rápido de interfaces responsivas.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Vamos construir algo incrível juntos</p>
+            <p style="margin-top: 2rem; opacity: 0.6;">© 2026 Daniel Rodrigues Pereira.</p>
+        </footer>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+<script>
+// Carrossel
+const indices = {};
+function moveSlide(n, id) {
+    if (indices[id] === undefined) indices[id] = 0;
+    const slides = document.getElementById(id).querySelector('.carousel-slides');
+    const total = slides.querySelectorAll('img').length;
+    indices[id] = (indices[id] + n + total) % total;
+    slides.style.transform = `translateX(${-indices[id] * 100}%)`;
+}
+
+// Temas e Scroll
+document.addEventListener('DOMContentLoaded', function() {
+    const btt = document.getElementById('back-to-top');
+    window.onscroll = () => btt.classList.toggle('visible', window.scrollY > 300);
+    btt.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+
+    const toggle = document.getElementById('theme-toggle');
+    toggle.onchange = () => {
+        const r = document.documentElement;
+        if (toggle.checked) {
+            r.style.setProperty('--dark', '#f8fafc');
+            r.style.setProperty('--light', '#0f172a');
+            r.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.8)');
+        } else {
+            r.style.setProperty('--dark', '#0f172a');
+            r.style.setProperty('--light', '#f8fafc');
+            r.style.setProperty('--card-bg', 'rgba(30, 41, 59, 0.7)');
+        }
+    };
+});
+</script>
+</body>
+</html> 
