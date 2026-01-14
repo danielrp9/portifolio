@@ -21,7 +21,6 @@
             overflow: hidden;
         }
 
-        /* Texto gigante decorativo ao fundo */
         .bg-text-giant {
             position: absolute;
             font-size: 22vw;
@@ -36,7 +35,6 @@
             user-select: none;
         }
 
-        /* Navegação Minimalista no Topo */
         .nav-header {
             position: absolute;
             top: 40px;
@@ -67,7 +65,6 @@
 
         .nav-links a:hover { opacity: 1; color: #2563eb; }
 
-        /* Container do Nome de Alto Impacto */
         .hero-name-container {
             z-index: 10;
             position: relative;
@@ -125,7 +122,6 @@
             font-weight: 400;
         }
 
-        /* Ajuste dos controles de contato para a nova estética */
         .header-controls {
             margin-top: 3.5rem;
             display: flex;
@@ -290,6 +286,47 @@
             font-weight: 600;
         }
 
+        /* --- ANIMAÇÕES DE ROLAGEM INFINITAS (REVEAL) --- */
+        
+        /* Configuração do Lenis (Smooth Scroll) */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        /* Classe de revelação base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.33, 1, 0.68, 1), 
+                        transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+            will-change: transform, opacity;
+        }
+
+        /* Estado ativo (quando entra na tela) */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Delays sequenciais para os cards de skills */
+        .skills-grid .skill-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .skills-grid.active .skill-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gerador de delay para as skills dentro do grid ativo */
+        .skills-grid.active .skill-card:nth-child(1) { transition-delay: 0.1s; }
+        .skills-grid.active .skill-card:nth-child(2) { transition-delay: 0.2s; }
+        .skills-grid.active .skill-card:nth-child(3) { transition-delay: 0.3s; }
+        .skills-grid.active .skill-card:nth-child(4) { transition-delay: 0.4s; }
+        .skills-grid.active .skill-card:nth-child(5) { transition-delay: 0.5s; }
+
         @media (max-width: 992px) {
             header { padding: 0 5%; }
             .nav-links { display: none; }
@@ -320,7 +357,7 @@
                 </div>
             </nav>
 
-            <div class="hero-name-container">
+            <div class="hero-name-container reveal">
                 <span class="location-label">Diamantina, MG — Brasil</span>
                 
                 <h1 class="hero-name-main">
@@ -346,19 +383,19 @@
         
         <main>
             <section id="sobre" class="about-section">
-                <h2 class="section-title">Sobre Mim</h2>
+                <h2 class="section-title reveal">Sobre Mim</h2>
                 <div class="about-grid">
-                    <div class="card">
+                    <div class="card reveal">
                         <h3>Sobre Mim</h3>
                         Desenvolvedor Full Stack com foco em construir soluções funcionais, bem estruturadas e orientadas à experiência do usuário, atuando em projetos acadêmicos, institucionais e com clientes reais.
                     </div>
                     
-                    <div class="card">
+                    <div class="card reveal">
                         <h3>Experiência Profissional</h3>
                         Atuação em projetos reais pela Empresa Júnior Next Step, desenvolvendo aplicações completas, do levantamento de requisitos à entrega, em times colaborativos e com foco em soluções escaláveis.
                     </div>
                     
-                    <div class="card">
+                    <div class="card reveal">
                         <h3>Projetos Acadêmicos</h3>
                         Atuei como presidente da Liga Acadêmica ByteBuilders, liderando oficinas, projetos colaborativos e iniciativas práticas voltadas à formação técnica em desenvolvimento de software.
                     </div>
@@ -366,9 +403,9 @@
             </section>
             
             <section id="projetos" class="projects-section">
-                <h2 class="section-title">Meus Projetos</h2>
+                <h2 class="section-title reveal">Meus Projetos</h2>
 
-                <div class="project-container">
+                <div class="project-container reveal">
                     <div class="project-carousel" id="p1">
                         <div class="carousel-slides">
                             <img src="assets/img/arq-luc2.png" alt="Studio Lucas Ribeiro">
@@ -397,7 +434,7 @@
                     </div>
                 </div>
 
-                <div class="project-container">
+                <div class="project-container reveal">
                     <div class="project-carousel" id="p2">
                         <div class="carousel-slides">
                             <img src="assets/img/protifolio-gab1.png" alt="Portfolio Gabriel">
@@ -425,7 +462,7 @@
                     </div>
                 </div>
 
-                <div class="project-container">
+                <div class="project-container reveal">
                     <div class="project-carousel" id="p4">
                         <div class="carousel-slides">
                             <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
@@ -460,11 +497,11 @@
             </section>
 
             <section id="tecnologias" class="skills-section">
-                <h2 class="section-title">Tecnologias & Expertise</h2>
+                <h2 class="section-title reveal">Tecnologias & Expertise</h2>
                 
                 <div class="skills-category">
-                    <div class="category-title">Backend & Core Development</div>
-                    <div class="skills-grid">
+                    <div class="category-title reveal">Backend & Core Development</div>
+                    <div class="skills-grid reveal">
                         <div class="skill-card">
                             <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
                             <h3>Python</h3>
@@ -481,8 +518,8 @@
                 </div>
 
                 <div class="skills-category">
-                    <div class="category-title">Frontend & Interfaces</div>
-                    <div class="skills-grid">
+                    <div class="category-title reveal">Frontend & Interfaces</div>
+                    <div class="skills-grid reveal">
                         <div class="skill-card">
                             <img src="assets/img/icones/js.png" alt="JS" class="skill-icon">
                             <h3>JavaScript</h3>
@@ -516,8 +553,47 @@
         </svg>
     </button>
 
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
 <script>
-// Carrossel
+// 1. Configuração do Lenis para Rolagem Fluida
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// 2. Intersection Observer para Animação Infinita (Cima e Baixo)
+const observerOptions = {
+    root: null,
+    threshold: 0.1, // Dispara quando 10% do elemento aparece
+    rootMargin: "0px 0px -50px 0px" // Pequena margem para a animação não ser abrupta
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Quando entra na tela (rolando para baixo ou para cima)
+            entry.target.classList.add('active');
+        } else {
+            // Quando sai da tela, removemos a classe para que ele possa "revelar" novamente
+            entry.target.classList.remove('active');
+        }
+    });
+}, observerOptions);
+
+// Aplicar o observer em todos os elementos com a classe reveal
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+// --- Código original mantido e adaptado ---
+
 const indices = {};
 function moveSlide(n, id) {
     if (indices[id] === undefined) indices[id] = 0;
@@ -527,21 +603,31 @@ function moveSlide(n, id) {
     slides.style.transform = `translateX(${-indices[id] * 100}%)`;
 }
 
-// Scroll Suave para Links Internos
+// Scroll Suave integrado ao Lenis
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            lenis.scrollTo(targetElement);
+        }
     });
 });
 
-// Temas e Scroll
 document.addEventListener('DOMContentLoaded', function() {
     const btt = document.getElementById('back-to-top');
-    window.onscroll = () => btt.classList.toggle('visible', window.scrollY > 300);
-    btt.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+    
+    // Controle do botão Voltar ao Topo
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            btt.classList.add('visible');
+        } else {
+            btt.classList.remove('visible');
+        }
+    });
+
+    btt.onclick = () => lenis.scrollTo(0);
 
     const toggle = document.getElementById('theme-toggle');
     toggle.onchange = () => {
