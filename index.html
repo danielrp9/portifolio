@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Daniel Rodrigues Pereira | Desenvolvedor Fullstack</title>
     <style>
-        /* --- ESTILOS DE APRESENTAÇÃO (NOVA HERO SECTION) --- */
+        /* --- ESTILOS DE APRESENTAÇÃO (HERO SECTION) --- */
         
         header {
             min-height: 100vh;
@@ -151,7 +151,7 @@
             transform: translateY(-3px);
         }
 
-        /* --- MANUTENÇÃO DOS ESTILOS ORIGINAIS (PROJETOS E SKILLS) --- */
+        /* --- ESTILOS DOS PROJETOS --- */
         .project-container {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -230,6 +230,65 @@
         .btn-online:hover { background: #2563eb; color: white; transform: translateY(-3px); }
         .btn-github { background: transparent; color: var(--light); border: 1px solid rgba(255, 255, 255, 0.2); }
         .btn-github:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
+
+        /* --- ESTILO PADRONIZADO DAS FERRAMENTAS --- */
+        .skills-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #60a5fa;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #2563eb;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin: 0;
+            font-weight: 600;
+        }
 
         @media (max-width: 992px) {
             header { padding: 0 5%; }
@@ -386,6 +445,9 @@
                             <span class="stack-tag">SQL</span>
                         </div>
                         <div class="project-links">
+                            <a href="https://flanelinha-ufvjm.onrender.com/adicionar/" target="_blank" class="btn-project btn-online">
+                                <i class="fas fa-external-link-alt"></i> Acessar Online
+                            </a>
                             <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
@@ -395,23 +457,45 @@
             </section>
 
             <section id="tecnologias" class="skills-section">
-                <h2 class="section-title">Ferramentas e Tecnologias</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
-                        <h3>Python</h3>
+                <h2 class="section-title">Tecnologias & Expertise</h2>
+                
+                <div class="skills-category">
+                    <div class="category-title">Backend & Core Development</div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
+                            <h3>Python</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/dj.png" alt="Django" class="skill-icon">
+                            <h3>Django</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/sql.png" alt="SQL" class="skill-icon">
+                            <h3>SQL & Databases</h3>
+                        </div>
                     </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/dj.png" alt="Django" class="skill-icon">
-                        <h3>Django</h3>
-                    </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/react2.png" alt="React" class="skill-icon">
-                        <h3>React JS</h3>
-                    </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/js.png" alt="JS" class="skill-icon">
-                        <h3>JavaScript</h3>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-title">Frontend & Interfaces</div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <img src="assets/img/icones/js.png" alt="JS" class="skill-icon">
+                            <h3>JavaScript</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/react2.png" alt="React" class="skill-icon">
+                            <h3>React JS</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/html.png" alt="HTML" class="skill-icon">
+                            <h3>HTML5</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/css.png" alt="CSS" class="skill-icon">
+                            <h3>CSS3</h3>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -464,12 +548,12 @@ document.addEventListener('DOMContentLoaded', function() {
             r.style.setProperty('--dark', '#f8fafc');
             r.style.setProperty('--light', '#0f172a');
             r.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.8)');
-            giantText.style.color = 'rgba(0,0,0,0.03)';
+            if(giantText) giantText.style.color = 'rgba(0,0,0,0.03)';
         } else {
             r.style.setProperty('--dark', '#0f172a');
             r.style.setProperty('--light', '#f8fafc');
             r.style.setProperty('--card-bg', 'rgba(30, 41, 59, 0.7)');
-            giantText.style.color = 'rgba(255,255,255,0.02)';
+            if(giantText) giantText.style.color = 'rgba(255,255,255,0.02)';
         }
     };
 });
