@@ -8,7 +8,150 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Daniel Rodrigues Pereira | Desenvolvedor Fullstack</title>
     <style>
-        /* Estilos para Harmonização e Novos Projetos */
+        /* --- ESTILOS DE APRESENTAÇÃO (NOVA HERO SECTION) --- */
+        
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Texto gigante decorativo ao fundo */
+        .bg-text-giant {
+            position: absolute;
+            font-size: 22vw;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: 1;
+            bottom: -5%;
+            right: -2%;
+            pointer-events: none;
+            text-transform: uppercase;
+            line-height: 0.8;
+            user-select: none;
+        }
+
+        /* Navegação Minimalista no Topo */
+        .nav-header {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            padding: 0 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; color: #2563eb; }
+
+        /* Container do Nome de Alto Impacto */
+        .hero-name-container {
+            z-index: 10;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .location-label {
+            color: #60a5fa;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 300;
+        }
+
+        .hero-name-main {
+            font-size: clamp(3.5rem, 11vw, 7.5rem);
+            font-weight: 900;
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        .name-filled {
+            color: var(--light);
+            display: block;
+        }
+
+        .name-outline {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-description {
+            margin-top: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .description-line {
+            width: 40px;
+            height: 1px;
+            background: #60a5fa;
+        }
+
+        .description-text {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+
+        /* Ajuste dos controles de contato para a nova estética */
+        .header-controls {
+            margin-top: 3.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .custom-icon {
+            width: 24px !important;
+            height: 24px !important;
+            opacity: 0.6;
+            transition: 0.3s;
+            filter: brightness(0) invert(1);
+        }
+
+        .icon-container:hover .custom-icon {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* --- MANUTENÇÃO DOS ESTILOS ORIGINAIS (PROJETOS E SKILLS) --- */
         .project-container {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -67,25 +210,10 @@
         .btn-prev { left: 10px; }
         .btn-next { right: 10px; }
 
-        .project-details h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--light);
-        }
-
-        .project-details p {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            opacity: 0.8;
-        }
-
-        .project-stacks {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-        }
-
+        .project-details h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--light); }
+        .project-details p { margin-bottom: 1.5rem; line-height: 1.7; opacity: 0.8; }
+        .project-stacks { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
+        
         .stack-tag {
             background: rgba(255, 255, 255, 0.05);
             color: var(--light);
@@ -96,47 +224,16 @@
             font-weight: 500;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-project {
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-online {
-            background: rgba(37, 99, 235, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-online:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .btn-github {
-            background: transparent;
-            color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-github:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-3px);
-        }
+        .project-links { display: flex; gap: 1rem; }
+        .btn-project { padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-online { background: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
+        .btn-online:hover { background: #2563eb; color: white; transform: translateY(-3px); }
+        .btn-github { background: transparent; color: var(--light); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .btn-github:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
 
         @media (max-width: 992px) {
+            header { padding: 0 5%; }
+            .nav-links { display: none; }
             .project-container { grid-template-columns: 1fr; padding: 1.5rem; }
         }
     </style>
@@ -145,36 +242,51 @@
     <div class="container">
         
         <header>
-            <div class="profile-header">
-                <img src="assets/img/perfil.png" alt="Foto de Daniel Rodrigues Pereira" class="profile-pic">
-                <div>
-                    <h1><strong>Daniel Rodrigues Pereira</strong></h1>
-                    <h2>Desenvolvedor Fullstack | Discente de Sistemas de Informação - UFVJM</h2>
-                    <p class="tagline soft-text">Sou um desenvolvedor Fullstack com forte atuação em projetos acadêmicos e comunitários, com experiência prática com Python, Django, HTML, CSS, JavaScript, React Native, Java e SQL, utilizando essas tecnologias para construir soluções robustas, funcionais e alinhadas às necessidades do usuário.</p>
-                    
-                    <div class="header-controls">
-                        <div class="contact-icons">
-                            <a href="https://wa.me/5538997414215" class="icon-container" target="_blank" title="WhatsApp"><img src="assets/img/whatsapp.png" alt="WhatsApp" class="custom-icon"></a>
-                            <a href="https://github.com/danielrp9" class="icon-container" target="_blank" title="GitHub"><img src="assets/img/github.png" alt="GitHub" class="custom-icon"></a>
-                            <a href="mailto:danielrodrigues878@hotmail.com" class="icon-container" title="E-mail"><img src="assets/img/e-mail.png" alt="E-mail" class="custom-icon"></a>
-                            <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" class="icon-container" target="_blank" title="LinkedIn"><img src="assets/img/linkedin.png" alt="LinkedIn" class="custom-icon"></a>
-                        </div>
-        
-                        <div class="theme-toggle-container" title="Alternar tema claro/escuro">
-                            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
-                            <label for="theme-toggle" class="theme-toggle-label">
-                                <span class="sun-icon"><i class="fas fa-sun"></i></span>
-                                <span class="moon-icon"><i class="fas fa-moon"></i></span>
-                                <span class="toggle-ball"></span>
-                            </label>
-                        </div>
+            <div class="bg-text-giant">FULLSTACK</div>
+
+            <nav class="nav-header">
+                <div class="logo"><strong>DRP.</strong></div>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#projetos">Projetos</a>
+                    <a href="#tecnologias">Tech</a>
+                    <div class="theme-toggle-container" title="Alternar tema claro/escuro">
+                        <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                        <label for="theme-toggle" class="theme-toggle-label">
+                            <span class="sun-icon"><i class="fas fa-sun"></i></span>
+                            <span class="moon-icon"><i class="fas fa-moon"></i></span>
+                            <span class="toggle-ball"></span>
+                        </label>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="hero-name-container">
+                <span class="location-label">Diamantina, MG — Brasil</span>
+                
+                <h1 class="hero-name-main">
+                    <span class="name-filled">Daniel</span>
+                    <span class="name-outline">Rodrigues</span>
+                </h1>
+
+                <div class="hero-description">
+                    <div class="description-line"></div>
+                    <span class="description-text">Desenvolvedor Fullstack | Sistemas de Informação</span>
+                </div>
+
+                <div class="header-controls">
+                    <div class="contact-icons">
+                        <a href="https://wa.me/5538997414215" class="icon-container" target="_blank" title="WhatsApp"><img src="assets/img/whatsapp.png" alt="WhatsApp" class="custom-icon"></a>
+                        <a href="https://github.com/danielrp9" class="icon-container" target="_blank" title="GitHub"><img src="assets/img/github.png" alt="GitHub" class="custom-icon"></a>
+                        <a href="mailto:danielrodrigues878@hotmail.com" class="icon-container" title="E-mail"><img src="assets/img/e-mail.png" alt="E-mail" class="custom-icon"></a>
+                        <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" class="icon-container" target="_blank" title="LinkedIn"><img src="assets/img/linkedin.png" alt="LinkedIn" class="custom-icon"></a>
                     </div>
                 </div>
             </div>
         </header>
         
         <main>
-            <section class="about-section">
+            <section id="sobre" class="about-section">
                 <h2 class="section-title">Sobre Mim</h2>
                 <div class="about-grid">
                     <div class="card">
@@ -191,10 +303,10 @@
                         <h3>Projetos Acadêmicos</h3>
                         Atuei como presidente da Liga Acadêmica ByteBuilders, liderando oficinas, projetos colaborativos e iniciativas práticas voltadas à formação técnica em desenvolvimento de software.
                     </div>
-
+                </div>
             </section>
             
-            <section class="projects-section">
+            <section id="projetos" class="projects-section">
                 <h2 class="section-title">Meus Projetos</h2>
 
                 <div class="project-container">
@@ -254,78 +366,26 @@
                     </div>
                 </div>
 
-<div class="project-container">
-    <div class="project-carousel" id="p4">
-        <div class="carousel-slides">
-            <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
-            <img src="assets/img/flanelinha-vei-estacio.png" alt="Sistema de Estacionamento">
-            <img src="assets/img/flanelinha-pag.png" alt="Sistema de Estacionamento">
-            <img src="assets/img/flanelinha-pagamento-tela.png" alt="Sistema de Estacionamento">
-            <img src="assets/img/flanelinha-historico de saida.png" alt="Sistema de Estacionamento">
-        </div>
-        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p4')">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p4')">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="project-details">
-        <h3>Sistema Web</h3>
-        <p>
-            Sistema Web de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais. O sistema permite o controle de vagas e o gerenciamento de veículos, além de integrar a API da Stripe para processamento seguro de pagamentos, proporcionando uma experiência prática e próxima de um cenário real de mercado.
-        </p>
-
-        <div class="project-stacks">
-            <span class="stack-tag">Python</span>
-            <span class="stack-tag">Django</span>
-            <span class="stack-tag">JavaScript</span>
-            <span class="stack-tag">HTML5</span>
-            <span class="stack-tag">CSS3</span>
-            <span class="stack-tag">Stripe API</span>
-            <span class="stack-tag">SQL</span>
-        </div>
-
-        <div class="project-links">
-            <!-- Se não tiver online, pode remover esse botão -->
-            <a href="#" class="btn-project btn-online">
-                <i class="fas fa-external-link-alt"></i> Acessar Online
-            </a>
-            <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-
                 <div class="project-container">
-                    <div class="project-carousel" id="p3">
+                    <div class="project-carousel" id="p4">
                         <div class="carousel-slides">
-                            <img src="assets/img/dce.png" alt="Portal DCE">
+                            <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
+                            <img src="assets/img/flanelinha-vei-estacio.png" alt="Sistema de Estacionamento">
+                            <img src="assets/img/flanelinha-pag.png" alt="Sistema de Estacionamento">
                         </div>
-                        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p3')"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p3')"><i class="fas fa-chevron-right"></i></button>
+                        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p4')"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p4')"><i class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="project-details">
-                        <h3>Portal DCE - UFVJM</h3>
-                        <p>Sistema web desenvolvido com o objetivo de centralizar e organizar informações institucionais do DCE, promovendo a transparência na gestão por meio da divulgação de dados financeiros, prestação de contas, controle de patrimônio e outras informações administrativas, facilitando o acesso da comunidade estudantil.</p>
+                        <h3>Sistema Web Estacionamento</h3>
+                        <p>Gerenciamento completo com integração Stripe API para pagamentos seguros, controle de vagas e veículos.</p>
                         <div class="project-stacks">
                             <span class="stack-tag">Python</span>
                             <span class="stack-tag">Django</span>
-                            <span class="stack-tag">JavaScript</span>
-                             <span class="stack-tag">CSS3</span>
-                              <span class="stack-tag">HTML5</span>
+                            <span class="stack-tag">Stripe API</span>
                             <span class="stack-tag">SQL</span>
-                            <span class="stack-tag">Bootstrap</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://dce.pythonanywhere.com/" target="_blank" class="btn-project btn-online">
-                                <i class="fas fa-external-link-alt"></i> Acessar Online
-                            </a>
                             <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
@@ -334,48 +394,24 @@
                 </div>
             </section>
 
-            <section class="skills-section">
+            <section id="tecnologias" class="skills-section">
                 <h2 class="section-title">Ferramentas e Tecnologias</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <img src="assets/img/icones/html.png" alt="HTML5" class="skill-icon">
-                        <h3>HTML5</h3>
-                        <p>Estruturação semântica de páginas web, formulários e acessibilidade.</p>
-                    </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/css.png" alt="CSS3" class="skill-icon">
-                        <h3>CSS3</h3>
-                        <p>Estilização avançada, Flexbox, Grid e responsividade.</p>
-                    </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/js.png" alt="JavaScript" class="skill-icon">
-                        <h3>JavaScript</h3>
-                        <p>Manipulação do DOM, ES6+ e programação assíncrona.</p>
-                    </div>
-                    <div class="skill-card">
                         <img src="assets/img/icones/python.png" alt="Python" class="skill-icon">
                         <h3>Python</h3>
-                        <p>Desenvolvimento back-end, scripts e automação.</p>
                     </div>
                     <div class="skill-card">
                         <img src="assets/img/icones/dj.png" alt="Django" class="skill-icon">
                         <h3>Django</h3>
-                        <p>Framework full-stack com ORM e arquitetura MVT.</p>
                     </div>
                     <div class="skill-card">
-                        <img src="assets/img/icones/sql.png" alt="SQL" class="skill-icon">
-                        <h3>SQL</h3>
-                        <p>Modelagem de bancos de dados e queries complexas.</p>
-                    </div>
-                    <div class="skill-card">
-                        <img src="assets/img/icones/react2.png" alt="React JS" class="skill-icon">
+                        <img src="assets/img/icones/react2.png" alt="React" class="skill-icon">
                         <h3>React JS</h3>
-                        <p>Interfaces modernas com componentes reutilizáveis.</p>
                     </div>
                     <div class="skill-card">
-                        <img src="assets/img/icones/bootstrap.png" alt="Bootstrap" class="skill-icon">
-                        <h3>Bootstrap</h3>
-                        <p>Desenvolvimento rápido de interfaces responsivas.</p>
+                        <img src="assets/img/icones/js.png" alt="JS" class="skill-icon">
+                        <h3>JavaScript</h3>
                     </div>
                 </div>
             </section>
@@ -404,6 +440,16 @@ function moveSlide(n, id) {
     slides.style.transform = `translateX(${-indices[id] * 100}%)`;
 }
 
+// Scroll Suave para Links Internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Temas e Scroll
 document.addEventListener('DOMContentLoaded', function() {
     const btt = document.getElementById('back-to-top');
@@ -413,17 +459,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('theme-toggle');
     toggle.onchange = () => {
         const r = document.documentElement;
+        const giantText = document.querySelector('.bg-text-giant');
         if (toggle.checked) {
             r.style.setProperty('--dark', '#f8fafc');
             r.style.setProperty('--light', '#0f172a');
             r.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.8)');
+            giantText.style.color = 'rgba(0,0,0,0.03)';
         } else {
             r.style.setProperty('--dark', '#0f172a');
             r.style.setProperty('--light', '#f8fafc');
             r.style.setProperty('--card-bg', 'rgba(30, 41, 59, 0.7)');
+            giantText.style.color = 'rgba(255,255,255,0.02)';
         }
     };
 });
 </script>
 </body>
-</html> 
+</html>
