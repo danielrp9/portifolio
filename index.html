@@ -286,6 +286,48 @@
             font-weight: 600;
         }
 
+        /* --- BOTÃO VOLTAR AO TOPO (ESTILIZADO) --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .back-to-top:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .back-to-top-icon {
+            width: 24px;
+            height: 24px;
+        }
+
         /* --- ANIMAÇÕES DE ROLAGEM INFINITAS (REVEAL) --- */
         
         /* Configuração do Lenis (Smooth Scroll) */
@@ -331,6 +373,7 @@
             header { padding: 0 5%; }
             .nav-links { display: none; }
             .project-container { grid-template-columns: 1fr; padding: 1.5rem; }
+            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -548,8 +591,8 @@
     </div>
 
     <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
-        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
 
@@ -572,23 +615,20 @@ requestAnimationFrame(raf);
 // 2. Intersection Observer para Animação Infinita (Cima e Baixo)
 const observerOptions = {
     root: null,
-    threshold: 0.1, // Dispara quando 10% do elemento aparece
-    rootMargin: "0px 0px -50px 0px" // Pequena margem para a animação não ser abrupta
+    threshold: 0.1, 
+    rootMargin: "0px 0px -50px 0px"
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Quando entra na tela (rolando para baixo ou para cima)
             entry.target.classList.add('active');
         } else {
-            // Quando sai da tela, removemos a classe para que ele possa "revelar" novamente
             entry.target.classList.remove('active');
         }
     });
 }, observerOptions);
 
-// Aplicar o observer em todos os elementos com a classe reveal
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 
@@ -618,16 +658,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('DOMContentLoaded', function() {
     const btt = document.getElementById('back-to-top');
     
-    // Controle do botão Voltar ao Topo
+    // Controle do botão Voltar ao Topo refinado
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
+        // Mostra o botão após 600px de rolagem
+        if (window.scrollY > 600) {
             btt.classList.add('visible');
         } else {
             btt.classList.remove('visible');
         }
     });
 
-    btt.onclick = () => lenis.scrollTo(0);
+    btt.onclick = () => {
+        lenis.scrollTo(0, { lerp: 0.05 }); // Subida suave usando o Lenis
+    };
 
     const toggle = document.getElementById('theme-toggle');
     toggle.onchange = () => {
