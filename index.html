@@ -147,9 +147,142 @@
             transform: translateY(-3px);
         }
 
+        /* --- ESTILOS SOBRE MIM (ATUALIZADOS) --- */
+        .about-section {
+            margin-bottom: 8rem; /* Aumentado para não grudar na seção seguinte */
+        }
+
+        .about-grid-main {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text-content h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .about-text-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-text-content p strong {
+            color: #60a5fa;
+            font-weight: 500;
+            opacity: 1;
+        }
+
+        .about-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            overflow: hidden;
+            background: #2563eb;
+            animation: morphing 10s infinite alternate;
+            border: 5px solid rgba(37, 99, 235, 0.2);
+            box-shadow: 0 0 50px rgba(37, 99, 235, 0.2);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+        }
+
+        .profile-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 20px 20px 20px 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            animation: float 3s ease-in-out infinite;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            border-left: 10px solid #2563eb;
+            border-bottom: 10px solid transparent;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .about-cards-secondary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .about-cards-secondary .card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: 0.4s ease;
+        }
+
+        .about-cards-secondary .card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+        }
+
+        .about-cards-secondary .card h3 {
+            color: #60a5fa;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .about-cards-secondary .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
         /* --- ESTILOS DOS PROJETOS --- */
 
-        /* MENU DE CATEGORIAS DE PROJETOS */
         .project-tabs {
             display: flex;
             justify-content: center;
@@ -317,7 +450,7 @@
             font-weight: 600;
         }
 
-        /* --- BOTÃO VOLTAR AO TOPO (ESTILIZADO) --- */
+        /* --- BOTÃO VOLTAR AO TOPO --- */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -359,14 +492,12 @@
             height: 24px;
         }
 
-        /* --- ANIMAÇÕES DE ROLAGEM INFINITAS (REVEAL) --- */
+        /* --- ANIMAÇÕES DE ROLAGEM --- */
         
-        /* Configuração do Lenis (Smooth Scroll) */
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         .lenis.lenis-stopped { overflow: hidden; }
 
-        /* Classe de revelação base */
         .reveal {
             opacity: 0;
             transform: translateY(40px) scale(0.98);
@@ -375,13 +506,11 @@
             will-change: transform, opacity;
         }
 
-        /* Estado ativo (quando entra na tela) */
         .reveal.active {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
 
-        /* Delays sequenciais para os cards de skills */
         .skills-grid .skill-card {
             opacity: 0;
             transform: translateY(20px);
@@ -393,59 +522,21 @@
             transform: translateY(0);
         }
 
-        /* Estilização da descrição com Scroll */
-.project-description-scroll {
-    max-height: 200px; /* Define a altura máxima antes de começar a rolar */
-    overflow-y: auto;
-    margin-bottom: 1.5rem;
-    padding-right: 10px;
-    scrollbar-width: thin; /* Para Firefox */
-    scrollbar-color: #2563eb rgba(255, 255, 255, 0.05); /* Para Firefox */
-}
+        .project-description-scroll {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+            padding-right: 15px;
+            overscroll-behavior: contain;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #2563eb rgba(255, 255, 255, 0.05);
+        }
 
-/* Customização da Scrollbar para Chrome, Edge e Safari */
-.project-description-scroll::-webkit-scrollbar {
-    width: 5px;
-}
+        .project-description-scroll::-webkit-scrollbar { width: 5px; }
+        .project-description-scroll::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        .project-description-scroll::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
 
-.project-description-scroll::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-}
-
-.project-description-scroll::-webkit-scrollbar-thumb {
-    background: #2563eb;
-    border-radius: 10px;
-}
-
-.project-description-scroll::-webkit-scrollbar-thumb:hover {
-    background: #60a5fa;
-}
-
-/* Garante que o container de detalhes não estique mais que o necessário */
-.project-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.project-description-scroll {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: 1.5rem;
-    padding-right: 15px; /* Espaço para a barra não ficar colada no texto */
-    
-    /* Adicione estas duas linhas: */
-    overscroll-behavior: contain; /* Impede que a página principal role quando o scroll interno chegar ao fim */
-    scroll-behavior: smooth; /* Deixa o scroll interno macio */
-
-    /* Estilização da barra (manter o que já fizemos) */
-    scrollbar-width: thin;
-    scrollbar-color: #2563eb rgba(255, 255, 255, 0.05);
-}
-
-        /* Gerador de delay para as skills dentro do grid ativo */
         .skills-grid.active .skill-card:nth-child(1) { transition-delay: 0.1s; }
         .skills-grid.active .skill-card:nth-child(2) { transition-delay: 0.2s; }
         .skills-grid.active .skill-card:nth-child(3) { transition-delay: 0.3s; }
@@ -457,8 +548,20 @@
             header { padding: 0 5%; }
             .nav-links { display: none; }
             .project-container { grid-template-columns: 1fr; padding: 1.5rem; }
-            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
-            .project-tabs { flex-wrap: wrap; }
+            
+            /* Ajuste para foto vir primeiro no mobile */
+            .about-grid-main { 
+                display: flex;
+                flex-direction: column-reverse; /* Inverte a ordem: imagem (que está embaixo no HTML) fica em cima */
+                text-align: center; 
+                gap: 3rem; 
+            }
+            
+            .speech-bubble { right: 50%; transform: translateX(50%); top: -40px; }
+            @keyframes float {
+                0%, 100% { transform: translateY(0) translateX(50%); }
+                50% { transform: translateY(-10px) translateX(50%); }
+            }
         }
     </style>
 </head>
@@ -512,20 +615,31 @@
         <main>
             <section id="sobre" class="about-section">
                 <h2 class="section-title reveal">Sobre Mim</h2>
-                <div class="about-grid">
-                    <div class="card reveal">
-                        <h3>Sobre Mim</h3>
-                        Desenvolvedor Full Stack com foco em construir soluções funcionais, bem estruturadas e orientadas à experiência do usuário, atuando em projetos acadêmicos, institucionais e com clientes reais.
+                
+                <div class="about-grid-main">
+                    <div class="about-text-content reveal">
+                        <h3>Olá, sou o Daniel Rodrigues</h3>
+                        <p>Atualmente curso o <strong>8° período de Sistemas de Informação</strong> na <strong>UFVJM</strong> em Diamantina. Minha jornada na tecnologia é movida pela curiosidade de entender como as coisas funcionam "por baixo do capô" e pela satisfação de criar produtos que facilitem a vida das pessoas.</p>
+                        <p>Sou um Desenvolvedor Full Stack com foco em construir soluções funcionais, bem estruturadas e orientadas à experiência do usuário, atuando em projetos acadêmicos, institucionais e com clientes reais.</p>
                     </div>
                     
+                    <div class="about-image-container reveal">
+                        <div class="speech-bubble">Prazer, me chamo Daniel! 👋</div>
+                        <div class="profile-wrapper">
+                            <img src="assets/img/daniel.png" alt="Daniel Rodrigues">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-cards-secondary">
                     <div class="card reveal">
                         <h3>Experiência Profissional</h3>
-                        Atuação em projetos reais pela Empresa Júnior Next Step, desenvolvendo aplicações completas, do levantamento de requisitos à entrega, em times colaborativos e com foco em soluções escaláveis.
+                        <p>Atuação em projetos reais pela Empresa Júnior Next Step, desenvolvendo aplicações completas, do levantamento de requisitos à entrega, em times colaborativos e com foco em soluções escaláveis.</p>
                     </div>
                     
                     <div class="card reveal">
                         <h3>Projetos Acadêmicos</h3>
-                        Atuei como presidente da Liga Acadêmica ByteBuilders, liderando oficinas, projetos colaborativos e iniciativas práticas voltadas à formação técnica em desenvolvimento de software.
+                        <p>Atuei como presidente da Liga Acadêmica ByteBuilders, liderando oficinas, projetos colaborativos e iniciativas práticas voltadas à formação técnica em desenvolvimento de software.</p>
                     </div>
                 </div>
             </section>
@@ -609,14 +723,11 @@
                         </div>
                         <div class="project-details">
                             <h3>Web App - Flanelinha</h3>
-                            <p>Sistema de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais. O sistema permite o controle de vagas e o gerenciamento de veículos, além de integrar a API da Stripe para processamento seguro de pagamentos, proporcionando uma experiência prática e próxima de um cenário real de mercado.</p>
+                            <p>Sistema de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais.</p>
                             <div class="project-stacks">
                                 <span class="stack-tag">Python</span>
                                 <span class="stack-tag">Django</span>
                                 <span class="stack-tag">JavaScript</span>
-                                <span class="stack-tag">CSS3</span>
-                                <span class="stack-tag">HTML5</span>
-                                <span class="stack-tag">SQL</span>
                                 <span class="stack-tag">Stripe API</span>
                             </div>
                             <div class="project-links">
@@ -700,7 +811,7 @@
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
 <script>
-// 1. Configuração do Lenis para Rolagem Fluida
+// 1. Configuração do Lenis
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -713,7 +824,7 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// 2. Intersection Observer para Animação Infinita (Cima e Baixo)
+// 2. Intersection Observer
 const observerOptions = {
     root: null,
     threshold: 0.1, 
@@ -735,18 +846,12 @@ function refreshObservers() {
 }
 refreshObservers();
 
-// --- LÓGICA DE CARREGAMENTO DINÂMICO ---
-
 const contentArea = document.getElementById('projects-content-area');
-// Salvamos o estado inicial (Web) para não precisar carregar via fetch se voltar pra ela
 const initialWebContent = contentArea.innerHTML;
 
 async function loadProjects(category, btn) {
-    // 1. UI: Trocar botão ativo
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    // 2. Efeito visual de transição (opcional: fade out)
     contentArea.style.opacity = '0';
     
     setTimeout(async () => {
@@ -760,25 +865,17 @@ async function loadProjects(category, btn) {
                     const html = await response.text();
                     contentArea.innerHTML = html;
                 } else {
-                    contentArea.innerHTML = "<p>Erro ao carregar projetos. Tente novamente mais tarde.</p>";
+                    contentArea.innerHTML = "<p>Erro ao carregar projetos.</p>";
                 }
             }
-            
-            // 3. Reinicializar observadores de animação e carrosséis para o novo conteúdo
             refreshObservers();
             contentArea.style.opacity = '1';
-            
-            // Reposicionar scroll para o início da seção de projetos se necessário
             lenis.scrollTo('#projetos', { offset: -50 });
-
         } catch (error) {
-            console.error("Erro ao carregar conteúdo:", error);
+            console.error(error);
         }
     }, 300);
 }
-
-
-// --- Código original mantido e adaptado ---
 
 const indices = {};
 function moveSlide(n, id) {
@@ -789,34 +886,23 @@ function moveSlide(n, id) {
     slides.style.transform = `translateX(${-indices[id] * 100}%)`;
 }
 
-// Scroll Suave integrado ao Lenis
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            lenis.scrollTo(targetElement);
-        }
+        if (targetElement) lenis.scrollTo(targetElement);
     });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     const btt = document.getElementById('back-to-top');
-    
-    // Controle do botão Voltar ao Topo refinado
     window.addEventListener('scroll', () => {
-        // Mostra o botão após 600px de rolagem
-        if (window.scrollY > 600) {
-            btt.classList.add('visible');
-        } else {
-            btt.classList.remove('visible');
-        }
+        if (window.scrollY > 600) btt.classList.add('visible');
+        else btt.classList.remove('visible');
     });
 
-    btt.onclick = () => {
-        lenis.scrollTo(0, { lerp: 0.05 }); // Subida suave usando o Lenis
-    };
+    btt.onclick = () => lenis.scrollTo(0, { lerp: 0.05 });
 
     const toggle = document.getElementById('theme-toggle');
     toggle.onchange = () => {
