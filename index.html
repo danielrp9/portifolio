@@ -7,563 +7,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Daniel Rodrigues Pereira | Desenvolvedor Fullstack</title>
-    <style>
-        /* --- ESTILOS DE APRESENTAÇÃO (HERO SECTION) --- */
-        
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 10%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bg-text-giant {
-            position: absolute;
-            font-size: 22vw;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.02);
-            z-index: 1;
-            bottom: -5%;
-            right: -2%;
-            pointer-events: none;
-            text-transform: uppercase;
-            line-height: 0.8;
-            user-select: none;
-        }
-
-        .nav-header {
-            position: absolute;
-            top: 40px;
-            left: 0;
-            width: 100%;
-            padding: 0 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            opacity: 0.6;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { opacity: 1; color: #2563eb; }
-
-        .hero-name-container {
-            z-index: 10;
-            position: relative;
-            margin-top: 50px;
-        }
-
-        .location-label {
-            color: #60a5fa;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.75rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            font-weight: 300;
-        }
-
-        .hero-name-main {
-            font-size: clamp(3.5rem, 11vw, 7.5rem);
-            font-weight: 900;
-            line-height: 0.85;
-            text-transform: uppercase;
-            margin: 0;
-            letter-spacing: -2px;
-        }
-
-        .name-filled {
-            color: var(--light);
-            display: block;
-        }
-
-        .name-outline {
-            display: block;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
-        }
-
-        .hero-description {
-            margin-top: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .description-line {
-            width: 40px;
-            height: 1px;
-            background: #60a5fa;
-        }
-
-        .description-text {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 400;
-        }
-
-        .header-controls {
-            margin-top: 3.5rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .contact-icons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .custom-icon {
-            width: 24px !important;
-            height: 24px !important;
-            opacity: 0.6;
-            transition: 0.3s;
-            filter: brightness(0) invert(1);
-        }
-
-        .icon-container:hover .custom-icon {
-            opacity: 1;
-            transform: translateY(-3px);
-        }
-
-        /* --- ESTILOS SOBRE MIM (ATUALIZADOS) --- */
-        .about-section {
-            margin-bottom: 8rem; /* Aumentado para não grudar na seção seguinte */
-        }
-
-        .about-grid-main {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text-content h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--light);
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .about-text-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            opacity: 0.7;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .about-text-content p strong {
-            color: #60a5fa;
-            font-weight: 500;
-            opacity: 1;
-        }
-
-        .about-image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            overflow: hidden;
-            background: #2563eb;
-            animation: morphing 10s infinite alternate;
-            border: 5px solid rgba(37, 99, 235, 0.2);
-            box-shadow: 0 0 50px rgba(37, 99, 235, 0.2);
-        }
-
-        @keyframes morphing {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            100% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-        }
-
-        .profile-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .speech-bubble {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background: #2563eb;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 20px 20px 20px 0;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-            animation: float 3s ease-in-out infinite;
-            z-index: 5;
-            white-space: nowrap;
-        }
-
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            border-left: 10px solid #2563eb;
-            border-bottom: 10px solid transparent;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        .about-cards-secondary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .about-cards-secondary .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            transition: 0.4s ease;
-        }
-
-        .about-cards-secondary .card:hover {
-            border-color: #2563eb;
-            transform: translateY(-5px);
-        }
-
-        .about-cards-secondary .card h3 {
-            color: #60a5fa;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .about-cards-secondary .card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.7;
-            font-weight: 300;
-        }
-
-        /* --- ESTILOS DOS PROJETOS --- */
-
-        .project-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--light);
-            padding: 10px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            transition: 0.4s;
-            opacity: 0.6;
-        }
-
-        .tab-btn.active {
-            background: #2563eb;
-            border-color: #2563eb;
-            opacity: 1;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .project-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 5rem;
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            align-items: center;
-           
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-carousel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            aspect-ratio: 16 / 9;
-            background: #000;
-        }
-
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-        }
-
-        .carousel-slides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .carousel-btn:hover { background: #2563eb; border-color: #2563eb; }
-        .btn-prev { left: 10px; }
-        .btn-next { right: 10px; }
-
-        .project-details h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--light); }
-        .project-details p { margin-bottom: 1.5rem; line-height: 1.7; opacity: 0.8; }
-        .project-stacks { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
-        
-        .stack-tag {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .project-links { display: flex; gap: 1rem; }
-        .btn-project { padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-online { background: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
-        .btn-online:hover { background: #2563eb; color: white; transform: translateY(-3px); }
-        .btn-github { background: transparent; color: var(--light); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .btn-github:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
-
-        /* --- ESTILO PADRONIZADO DAS FERRAMENTAS --- */
-        .skills-category {
-            margin-bottom: 4rem;
-        }
-
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #60a5fa;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .category-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #2563eb;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .skill-icon {
-            width: 45px;
-            height: 45px;
-            margin-bottom: 1.2rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1.1rem;
-            color: var(--light);
-            margin: 0;
-            font-weight: 600;
-        }
-
-        /* --- BOTÃO VOLTAR AO TOPO --- */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--card-bg);
-            color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            cursor: pointer;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px) scale(0.8);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .back-to-top:hover {
-            background: #2563eb;
-            border-color: #2563eb;
-            color: white;
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .back-to-top-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* --- ANIMAÇÕES DE ROLAGEM --- */
-        
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        .lenis.lenis-stopped { overflow: hidden; }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px) scale(0.98);
-            transition: opacity 0.8s cubic-bezier(0.33, 1, 0.68, 1), 
-                        transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
-            will-change: transform, opacity;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .skills-grid .skill-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .skills-grid.active .skill-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-description-scroll {
-            max-height: 200px;
-            overflow-y: auto;
-            margin-bottom: 1.5rem;
-            padding-right: 15px;
-            overscroll-behavior: contain;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: #2563eb rgba(255, 255, 255, 0.05);
-        }
-
-        .project-description-scroll::-webkit-scrollbar { width: 5px; }
-        .project-description-scroll::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
-        .project-description-scroll::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
-
-        .skills-grid.active .skill-card:nth-child(1) { transition-delay: 0.1s; }
-        .skills-grid.active .skill-card:nth-child(2) { transition-delay: 0.2s; }
-        .skills-grid.active .skill-card:nth-child(3) { transition-delay: 0.3s; }
-        .skills-grid.active .skill-card:nth-child(4) { transition-delay: 0.4s; }
-        .skills-grid.active .skill-card:nth-child(5) { transition-delay: 0.5s; }
-        .skills-grid.active .skill-card:nth-child(6) { transition-delay: 0.6s; }
-
-        @media (max-width: 992px) {
-            header { padding: 0 5%; }
-            .nav-links { display: none; }
-            .project-container { grid-template-columns: 1fr; padding: 1.5rem; }
-            
-            /* Ajuste para foto vir primeiro no mobile */
-            .about-grid-main { 
-                display: flex;
-                flex-direction: column-reverse; /* Inverte a ordem: imagem (que está embaixo no HTML) fica em cima */
-                text-align: center; 
-                gap: 3rem; 
-            }
-            
-            .speech-bubble { right: 50%; transform: translateX(50%); top: -40px; }
-            @keyframes float {
-                0%, 100% { transform: translateY(0) translateX(50%); }
-                50% { transform: translateY(-10px) translateX(50%); }
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -619,8 +62,8 @@
                 <div class="about-grid-main">
                     <div class="about-text-content reveal">
                         <h3>Olá, sou o Daniel Rodrigues</h3>
-                        <p>Atualmente curso o <strong>8° período de Sistemas de Informação</strong> na <strong>UFVJM</strong> em Diamantina. Minha jornada na tecnologia é movida pela curiosidade de entender como as coisas funcionam "por baixo do capô" e pela satisfação de criar produtos que facilitem a vida das pessoas.</p>
-                        <p>Sou um Desenvolvedor Full Stack com foco em construir soluções funcionais, bem estruturadas e orientadas à experiência do usuário, atuando em projetos acadêmicos, institucionais e com clientes reais.</p>
+                        <p>Sou estudante do <strong>8° período de Sistemas de Informação</strong> na <strong>UFVJM</strong> eem Diamantina, com interesse em entender como as aplicações funcionam além da interface, explorando arquitetura, dados e desempenho.</p>
+                        <p>Atuo como Desenvolvedor Full Stack, focado em criar soluções funcionais, bem estruturadas e orientadas à experiência do usuário. Tenho experiência em projetos acadêmicos, institucionais e com clientes reais, sempre buscando unir clareza técnica, organização de código e impacto prático no dia a dia das pessoas.</p>
                     </div>
                     
                     <div class="about-image-container reveal">
@@ -654,6 +97,71 @@
                 </div>
 
                 <div id="projects-content-area">
+                    <div class="project-container reveal">
+                        <div class="project-carousel" id="p_next">
+                            <div class="carousel-slides">
+                                <img src="assets/img/cripto.png" alt="SaaS Application Next.js">
+                                <img src="assets/img/cripto2.png" alt="SaaS Application Next.js">
+                                </div>
+                            <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p_next')"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p_next')"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Next.js SaaS - Performance & API Rest</h3>
+                            <p>
+                                Aplicação de alta performance focada em consumo de APIs e arquitetura de dados. Implementa <strong>Server Components</strong> e carregamento paralelo com Promise.all, garantindo uma interface fluida com <strong>Glassmorphism</strong> e processamento de séries temporais para gráficos.
+                            </p>
+                            <div class="project-stacks">
+                                <span class="stack-tag">Next.js</span>
+                                <span class="stack-tag">JavaScript</span>
+                                <span class="stack-tag">Tailwind CSS</span>
+                                <span class="stack-tag">REST API</span>
+                                <span class="stack-tag">Vercel</span>
+                                <span class="stack-tag">NextAuth.js</span>
+                                <span class="stack-tag">Lucide React</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://lnkd.in/d5xG5Wpf" target="_blank" class="btn-project btn-online">
+                                    <i class="fas fa-external-link-alt"></i> Acessar Online
+                                </a>
+                                <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-container reveal">
+                        <div class="project-carousel" id="p4">
+                            <div class="carousel-slides">
+                                <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
+                                <img src="assets/img/flanelinha-vei-estacio.png" alt="Sistema de Estacionamento">
+                                <img src="assets/img/flanelinha-pag.png" alt="Sistema de Estacionamento">
+                            </div>
+                            <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p4')"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p4')"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Web App - Flanelinha</h3>
+                            <p>Sistema de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais.</p>
+                            <div class="project-stacks">
+                                <span class="stack-tag">Python</span>
+                                <span class="stack-tag">Django</span>
+                                <span class="stack-tag">SQL</span>
+                                <span class="stack-tag">JavaScript</span>
+                                <span class="stack-tag">Stripe API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://flanelinha-ufvjm.onrender.com/adicionar/" target="_blank" class="btn-project btn-online">
+                                    <i class="fas fa-external-link-alt"></i> Acessar Online
+                                </a>
+                                <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="project-container reveal">
                         <div class="project-carousel" id="p1">
                             <div class="carousel-slides">
@@ -712,93 +220,38 @@
                     </div>
 
                     <div class="project-container reveal">
-                        <div class="project-carousel" id="p4">
+                        <div class="project-carousel" id="p5">
                             <div class="carousel-slides">
-                                <img src="assets/img/flanelinha1.png" alt="Sistema de Estacionamento">
-                                <img src="assets/img/flanelinha-vei-estacio.png" alt="Sistema de Estacionamento">
-                                <img src="assets/img/flanelinha-pag.png" alt="Sistema de Estacionamento">
+                                <img src="assets/img/conversor-pdf.png" alt="Conversor de PDF">
+                                <img src="assets/img/conversor-pdf2.png" alt="Conversor de PDF">
                             </div>
-                            <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p4')"><i class="fas fa-chevron-left"></i></button>
-                            <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p4')"><i class="fas fa-chevron-right"></i></button>
+                            <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p5')"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p5')"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         <div class="project-details">
-                            <h3>Web App - Flanelinha</h3>
-                            <p>Sistema de Gerenciamento de Estacionamento. Projeto desenvolvido na disciplina de Engenharia Web, com foco no levantamento e implementação de requisitos funcionais e não funcionais para dar vida ao sistema de Gerenciamento de Estacionamento.</p>
+                            <h3>Web App — Conversor de PDF</h3>
+                            <p>Aplicação web 100% client-side para criação e manipulação de PDFs diretamente no navegador, com foco em usabilidade e privacidade.</p>
                             <div class="project-stacks">
-                                <span class="stack-tag">Python</span>
-                                <span class="stack-tag">Django</span>
-                                <span class="stack-tag">SQL</span>
                                 <span class="stack-tag">JavaScript</span>
-                                 <span class="stack-tag">HTML5</span>
-                                  <span class="stack-tag">CSS3</span>
-                                <span class="stack-tag">Stripe API</span>
+                                <span class="stack-tag">Bootstrap 5</span>
+                                <span class="stack-tag">jsPDF</span>
+                                <span class="stack-tag">pdf-lib</span>
+                                <span class="stack-tag">SortableJS</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://flanelinha-ufvjm.onrender.com/adicionar/" target="_blank" class="btn-project btn-online">
+                                <a href="https://danielrp9.github.io/coversor-pdf/" target="_blank" class="btn-project btn-online">
                                     <i class="fas fa-external-link-alt"></i> Acessar Online
                                 </a>
-                                <a href="https://github.com/danielrp9" target="_blank" class="btn-project btn-github">
+                                <a href="https://github.com/danielrp9/coversor-pdf" target="_blank" class="btn-project btn-github">
                                     <i class="fab fa-github"></i> GitHub
                                 </a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="project-container reveal">
-    <div class="project-carousel" id="p5">
-        <div class="carousel-slides">
-            <img src="assets/img/conversor-pdf.png" alt="Conversor de PDF">
-            <img src="assets/img/conversor-pdf2.png" alt="Conversor de PDF">
-        </div>
-        <button class="carousel-btn btn-prev" onclick="moveSlide(-1, 'p5')">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn btn-next" onclick="moveSlide(1, 'p5')">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="project-details">
-        <h3>Web App — Conversor de PDF</h3>
-
-        <p>
-            Aplicação web 100% <strong>client-side </strong>para criação e manipulação de PDFs diretamente no navegador, com foco em usabilidade, privacidade e desempenho.
-            A aplicação permite conversão de imagens, PDFs e arquivos TXT, com preview visual, reordenação por drag & drop, geração de PDFs em alta qualidade, junção de documentos e personalização visual por temas. Todo o processamento ocorre localmente no navegador, utilizando APIs nativas e bibliotecas JavaScript especializadas.
-        </p>
-
-
-        <div class="project-stacks">
-            <span class="stack-tag">HTML5</span>
-            <span class="stack-tag">CSS3</span>
-            <span class="stack-tag">JavaScript</span>
-            <span class="stack-tag">Bootstrap 5</span>
-            <span class="stack-tag">jsPDF</span>
-            <span class="stack-tag">pdf-lib</span>
-            <span class="stack-tag">SortableJS</span>
-            <span class="stack-tag">UX</span>
-        </div>
-
-        <div class="project-links">
-            <a href="https://danielrp9.github.io/coversor-pdf/" 
-               target="_blank" 
-               class="btn-project btn-online">
-                <i class="fas fa-external-link-alt"></i> Acessar Online
-            </a>
-
-            <a href="https://github.com/danielrp9/coversor-pdf" 
-               target="_blank" 
-               class="btn-project btn-github">
-                <i class="fab fa-github"></i> Ver Código no GitHub
-            </a>
-        </div>
-    </div>
-</div>
-
-
                 </div>
             </section>
 
-            <section id="tecnologias" class="skills-section">
+<section id="tecnologias" class="skills-section">
                 <h2 class="section-title reveal">Tecnologias & Expertise</h2>
                 
                 <div class="skills-category">
@@ -815,6 +268,10 @@
                         <div class="skill-card">
                             <img src="assets/img/icones/sql.png" alt="SQL" class="skill-icon">
                             <h3>SQL & Databases</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/api.png" alt="REST API" class="skill-icon">
+                            <h3>REST API</h3>
                         </div>
                     </div>
                 </div>
@@ -833,6 +290,14 @@
                         <div class="skill-card">
                             <img src="assets/img/icones/react2.png" alt="React" class="skill-icon">
                             <h3>React</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/nextjs.png" alt="Next.js" class="skill-icon">
+                            <h3>Next.js</h3>
+                        </div>
+                        <div class="skill-card">
+                            <img src="assets/img/icones/tailwindcss.png" alt="Tailwind CSS" class="skill-icon">
+                            <h3>Tailwind CSS</h3>
                         </div>
                         <div class="skill-card">
                             <img src="assets/img/icones/figma.png" alt="Figma" class="skill-icon">
@@ -866,7 +331,6 @@
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
 <script>
-// 1. Configuração do Lenis
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -879,7 +343,6 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// 2. Intersection Observer
 const observerOptions = {
     root: null,
     threshold: 0.1, 
@@ -935,8 +398,14 @@ async function loadProjects(category, btn) {
 const indices = {};
 function moveSlide(n, id) {
     if (indices[id] === undefined) indices[id] = 0;
-    const slides = document.getElementById(id).querySelector('.carousel-slides');
+    const carousel = document.getElementById(id);
+    if (!carousel) return;
+    const slides = carousel.querySelector('.carousel-slides');
     const total = slides.querySelectorAll('img').length;
+    
+    // Se houver apenas uma imagem, não faz sentido mover
+    if (total <= 1) return;
+
     indices[id] = (indices[id] + n + total) % total;
     slides.style.transform = `translateX(${-indices[id] * 100}%)`;
 }
